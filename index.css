@@ -6,7 +6,8 @@ html,
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Roboto'
+    font-family: 'Roboto';
+
 }
 
 :root {
@@ -21,6 +22,11 @@ body {
     box-shadow: 0px 5px 10px -5px rgba(0, 0, 0, 0.2);
 }
 
+.header .burger-menu {
+    display: none;
+    cursor: pointer;
+}
+
 .header .menu ul {
     display: flex;
     align-items: center;
@@ -32,6 +38,55 @@ body {
     text-decoration: none;
     color: var(--primary-red);
 }
+
+.drawer-menu {
+    width: 0px;
+    height: 100%;
+    background-color: white;
+    padding-block: 20px;
+    position: fixed;
+    z-index: 1;
+    overflow-x: hidden;
+    top: 0;
+    right: 0;
+    transition: 0.5s;
+    box-shadow: -3px 0px 5px -1px rgba(0, 0, 0, 0.5);
+}
+
+.drawer-menu .drawer-close {
+    display: flex;
+    justify-content: flex-end;
+    padding-inline: 20px;
+}
+
+.drawer-menu .drawer-close span {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: right;
+    padding: 0 10px;
+    box-sizing: border-box;
+    border: 1px solid #555;
+    border-radius: 50px;
+}
+
+.drawer-menu ul {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0;
+    align-items: center;
+}
+
+.drawer-menu ul a {
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+}
+
+.drawer-menu ul a:hover {
+    color: red;
+}
+
 
 .contact-btn,
 .join-btn {
@@ -53,27 +108,23 @@ body {
 }
 
 .hero-area {
-    height: 800px;
-    background-image: url('./assets/img/Background_vector.svg');
-    background-repeat: no-repeat;
-    background-size: 100%;
-    background-position-x: right;
-    background-position-y: bottom;
-    overflow: auto;
+    background: red;
     display: flex;
-    gap: 50px;
+    align-items: center;
+    gap: 10%;
+    padding: 20px 100px;
 }
 
 .hero-area h1 {
-    max-width: 650px;
+    /* max-width: 650px; */
     font-size: 60px;
     color: white;
-    margin-top: 110px;
-    margin-left: 50px;
+
 }
 
 .hero-area img {
-    margin-top: -150px;
+    /* margin-top: -150px; */
+    width: 40%;
 }
 
 .home-container {
@@ -90,6 +141,8 @@ section p {
 .home-container section {
     width: 100%;
     text-align: center;
+    padding: 0 10px;
+    box-sizing: border-box;
 }
 
 .home-container section h3 {
@@ -114,13 +167,13 @@ section p {
 }
 
 
-.about-us-section .underline {
+/* .about-us-section .underline {
     border: 3px solid red;
     width: 200px;
     margin: auto;
     margin-top: -30px;
 
-}
+} */
 
 .about-us-section .block {
     margin-top: 80px;
@@ -177,6 +230,7 @@ section p {
 
 .articles-list {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
 }
 
@@ -300,4 +354,63 @@ footer {
     display: flex;
     align-items: center;
     gap: 10px;
+}
+
+
+
+/* TABLETTE */
+
+@media (max-width:1024px) {
+    .header .menu {
+        display: none;
+    }
+
+    .header .burger-menu {
+        display: block;
+    }
+
+    .hero-area h1 {
+        font-size: 40px;
+    }
+
+    .articles-list>div {
+        width: 60%;
+        margin: 20px auto;
+    }
+
+    .footer-logo {
+        display: none;
+    }
+
+
+
+    /*  */
+}
+
+/* MOBILE */
+@media (max-width:425px) {
+    .hero-area img {
+        display: none;
+    }
+
+    .about-us-section .block {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+
+    .footer-logo {
+        display: none;
+    }
+
+    .footer-menu {
+        display: none;
+    }
+
+    .footer-contact {
+        width: 80%;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
 }
